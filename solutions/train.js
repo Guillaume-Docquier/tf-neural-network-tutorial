@@ -1,44 +1,36 @@
-const tf = require("@tensorflow/tfjs");
-require("@tensorflow/tfjs-node");
-
 const mnist = require("mnist");
-
-const { MNIST_PIXEL_COUNT, MNIST_NB_CLASSES } = require("./constants");
-
-const HIDDEN_LAYER_UNITS = 300;
-
-const { training, test } = mnist.set(5000, 1000);
-
-const model = tf.sequential();
-model.add(tf.layers.dense({ inputShape: [MNIST_PIXEL_COUNT], units: HIDDEN_LAYER_UNITS, activation: "relu" }));
-model.add(tf.layers.dense({ units: MNIST_NB_CLASSES, activation: "softmax" }));
-
-model.compile({
-    optimizer: "adam",
-    loss: "categoricalCrossentropy",
-    metrics: ["accuracy"]
-});
+const model = require("./models").mlp;
 
 main();
 async function main() {
-    const trainInput = tf.tensor2d(training.map(data => data.input));
-    const trainOutput = tf.tensor2d(training.map(data => data.output));
-    const fitResult = await model.fit(trainInput, trainOutput, {
+    const data = mnist.set(5000, 1000);
+    const network = model.build();
+    const fitResult = await train(network, data.training);
+    const evalResult = test(network, data.test);
+
+    printMetrics(fitResult, evalResult);
+    network.save("file://./mnist.tfm");
+}
+
+async function train(network, data) {
+    const trainTensors = model.convertDataToTensors(data);
+    return await network.fit(trainTensors.input, trainTensors.output, {
         batchSize: 64,
         epochs: 10,
         shuffle: true,
         validationSplit: 0.15
     });
+}
 
-    const testInput = tf.tensor2d(test.map(data => data.input));
-    const testOutput = tf.tensor2d(test.map(data => data.output));
-    const evalResult = model.evaluate(testInput, testOutput, {
-        batchSize: test.length
+function test(network, data) {
+    const testTensors = model.convertDataToTensors(data);
+    return network.evaluate(testTensors.input, testTensors.output, {
+        batchSize: data.length
     });
-    
-    const accuracyMetricIndex = fitResult.params.metrics.indexOf("acc");
-    const accuracy = await evalResult[accuracyMetricIndex].data();
-    console.log(`Test accuracy: ${(accuracy * 100).toFixed(2)}%`);
+}
 
-    model.save("file://./mnist.tfm");
+function printMetrics(fitResult, evalResult) {
+    const accuracyMetricIndex = fitResult.params.metrics.indexOf("acc");
+    const accuracy = evalResult[accuracyMetricIndex].dataSync();
+    console.log(`Test accuracy: ${(accuracy * 100).toFixed(2)}%`);
 }

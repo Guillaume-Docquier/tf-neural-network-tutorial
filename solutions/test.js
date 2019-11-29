@@ -2,9 +2,9 @@ const tf = require('@tensorflow/tfjs');
 require('@tensorflow/tfjs-node');
 
 const mnist = require("mnist");
-const { shuffle, argmax, consoleFormat } = require("./utils");
+const { shuffle, argmax, consoleFormat } = require("./models/utils");
 
-const { MNIST_IMAGE_SIZE } = require("./constants");
+const { MNIST_IMAGE_SIZE } = require("./models/constants");
 
 const testData = mnist.set(0, 10000).test;
 const shuffledTestData = shuffle(testData);
