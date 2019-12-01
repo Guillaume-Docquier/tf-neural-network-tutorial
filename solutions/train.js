@@ -1,5 +1,5 @@
 const mnist = require("mnist");
-const model = require("./models").mlp;
+const { model, trainBatchSize, trainEpochs, trainShuffle, trainValidationSplit } = require("./config");
 
 main();
 async function main() {
@@ -15,10 +15,10 @@ async function main() {
 async function train(network, data) {
     const trainTensors = model.convertDataToTensors(data);
     return await network.fit(trainTensors.input, trainTensors.output, {
-        batchSize: 64,
-        epochs: 10,
-        shuffle: true,
-        validationSplit: 0.15
+        batchSize: trainBatchSize,
+        epochs: trainEpochs,
+        shuffle: trainShuffle,
+        validationSplit: trainValidationSplit
     });
 }
 
