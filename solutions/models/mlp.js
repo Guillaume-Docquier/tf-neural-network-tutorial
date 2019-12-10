@@ -1,7 +1,7 @@
 const tf = require("@tensorflow/tfjs");
 require("@tensorflow/tfjs-node");
 
-const { MNIST_PIXEL_COUNT, MNIST_NB_CLASSES } = require("./constants");
+const { MNIST_PIXEL_COUNT, MNIST_NB_CLASSES } = require("../src");
 
 const HIDDEN_LAYER_UNITS = 300;
 

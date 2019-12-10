@@ -3,8 +3,10 @@ const { model, trainBatchSize, trainEpochs, trainShuffle, trainValidationSplit }
 
 main();
 async function main() {
-    const data = mnist.set(5000, 1000);
     const network = model.build();
+    network.summary();
+
+    const data = mnist.set(5000, 1000);
     const fitResult = await train(network, data.training);
     const evalResult = test(network, data.test);
 

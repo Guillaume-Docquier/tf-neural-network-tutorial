@@ -1,7 +1,7 @@
 const { mlp, cnn } = require("./models");
 
 // Try changing the model you use
-const model = cnn;
+const model = mlp;
 
 // Try changing these hyperparameters
 const trainBatchSize = 64;

@@ -1,21 +1,21 @@
 const tf = require("@tensorflow/tfjs");
 require("@tensorflow/tfjs-node");
 
-const { MNIST_IMAGE_SIZE, MNIST_NB_CLASSES } = require("./constants");
+const { MNIST_IMAGE_SIZE, MNIST_NB_CLASSES } = require("../src");
 
 function build() {
     const model = tf.sequential();
 
     // Convolutions
     model.add(tf.layers.conv2d({ inputShape: [1, MNIST_IMAGE_SIZE, MNIST_IMAGE_SIZE], dataFormat: "channelsFirst", filters: 32, kernelSize: 3, activation: "relu" }));
-    model.add(tf.layers.maxPooling2d({ poolSize: 2 }));
-    model.add(tf.layers.conv2d({ filters: 64, kernelSize: 3, activation: "relu" }));
-    model.add(tf.layers.maxPooling2d({ poolSize: 2 }));
-    model.add(tf.layers.conv2d({ filters: 128, kernelSize: 3, activation: "relu" }));
+    model.add(tf.layers.maxPooling2d({ dataFormat: "channelsFirst", poolSize: 2 }));
+    model.add(tf.layers.conv2d({ dataFormat: "channelsFirst", filters: 64, kernelSize: 3, activation: "relu" }));
+    model.add(tf.layers.maxPooling2d({ dataFormat: "channelsFirst", poolSize: 2 }));
+    model.add(tf.layers.conv2d({ dataFormat: "channelsFirst", filters: 128, kernelSize: 3, activation: "relu" }));
 
     // Classification
     model.add(tf.layers.flatten());
-    model.add(tf.layers.dense({ units: 32, activation: "relu" }));
+    model.add(tf.layers.dense({ units: 64, activation: "relu" }));
     model.add(tf.layers.dense({ units: MNIST_NB_CLASSES, activation: "softmax" }));
     
     model.compile({
