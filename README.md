@@ -2,12 +2,12 @@
 Welcome to this neural network tutorial using tensorflow and mnist!  
 This tutorial is aimed at machine learning and javascript beginners!  
 
-# Before you start
+## Before you start
 You will need to install NodeJS and npm to complete the exercises.  
 NodeJS and npm are usually bundled together. You can download NodeJS from their [official website](https://nodejs.org/en/) or install it through [chocolatey](https://chocolatey.org/packages/nodejs)  
 ``choco install nodejs``
 
-# The project
+## The project
 After completing this project, you will have built and trained a Tensorflow neural network to predict the number drawn in an image.  
 While the exercises are quite simple, they lay the ground works for any machine learning technique using neural networks.  
 I encourage you to play with the code after you've completed the exercises. Try different models or even change the dataset!  
@@ -30,5 +30,5 @@ The example folder contains roughly the same code as the exercices, but organize
 It contains two model topologies you can play with: A multilayer perceptron (MLP) and a Convolutional Neural Network (CNN).  
 Look at the config.js file and try running train.js and test.js!  
 
-# Huh, how do I run a node.js script ?
+## Huh, how do I run a node.js script ?
 In a terminal, you can simply use the ``node path/to/my/file.js`` command.   
