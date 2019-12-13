@@ -8,6 +8,9 @@ NodeJS and npm are usually bundled together.
 You can download NodeJS from their [official website](https://nodejs.org/en/) or install it through [chocolatey](https://chocolatey.org/packages/nodejs).  
 ``choco install nodejs``
 
+Once all of this is done, run ``npm install``  
+Note: Sometimes, tensorflow doesn't install properly. You'll get errors when trying to import it. To fix this, you can run ``npm run fix-tf-install``  
+
 ## The project
 After completing this project, you will have built and trained a Tensorflow neural network to predict the number drawn in an image.  
 While the exercises are quite simple, they lay the ground works for any machine learning technique using neural networks.  
