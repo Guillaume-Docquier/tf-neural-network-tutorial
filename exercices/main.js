@@ -13,7 +13,9 @@ async function main() {
     const testResult = test(model, testTensors);
     
     printMetrics(fitResult, testResult);
-    // TODO Visualize
+
+    console.log("Model saved to file!");
+    model.save("file://./mnist.tfm");
 }
 
 function printMetrics(fitResult, evalResult) {

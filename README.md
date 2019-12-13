@@ -27,6 +27,7 @@ The exercises are divided in 5 parts. Each part represents a step in the trainin
 
 Once you have completed the code, run ``main.js``! If you did it right, you should see the training start.  
 You can expect the training to take less than a minute an achieve over 90% accuracy.  
+You can then run ``test.js`` to see what your network predicted for 10 images.  
 
 The solutions follows the same files/folders structure as the exercises, but with all the code completed.  
 

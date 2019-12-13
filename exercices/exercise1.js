@@ -4,7 +4,6 @@ const mnist = require("mnist");
 // Inspect the data to see what it looks like
 // Respect the return format
 function getData() {
-
     return { training: [], test: [] };
 }
 
