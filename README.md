@@ -13,6 +13,8 @@ You can download NodeJS from their [official website](https://nodejs.org/en/) or
 ``choco install nodejs``
 
 Once all of this is done, run ``npm install``  
+
+You can test that your installation worked by running ``node solutions/main.js``. You should see a bunch of numbers and a progress bar.  
 Note: Sometimes, tensorflow doesn't install properly. You'll get errors when trying to import it.  
 To fix this, you can run ``npm run fix-tf-install-unix`` or ``npm run fix-tf-install-windows``, depending on the type of terminal you are using (do you use ``ls`` or ``dir`` ?).  
 
