@@ -9,7 +9,8 @@
   },
   "devDependencies": {},
   "scripts": {
-    "fix-tf-install": "cp node_modules/@tensorflow/tfjs-node/deps/lib/tensorflow.dll node_modules/@tensorflow/tfjs-node/lib/napi-v4/tensorflow.dll"
+    "fix-tf-install-unix": "cp node_modules/@tensorflow/tfjs-node/deps/lib/tensorflow.dll node_modules/@tensorflow/tfjs-node/lib/napi-v4/tensorflow.dll",
+    "fix-tf-install-windows": "copy \"node_modules\\@tensorflow\\tfjs-node\\deps\\lib\\tensorflow.dll\" \"node_modules\\@tensorflow\\tfjs-node\\lib\\napi-v4\\tensorflow.dll\""
   },
   "repository": {
     "type": "git",

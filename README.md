@@ -9,7 +9,8 @@ You can download NodeJS from their [official website](https://nodejs.org/en/) or
 ``choco install nodejs``
 
 Once all of this is done, run ``npm install``  
-Note: Sometimes, tensorflow doesn't install properly. You'll get errors when trying to import it. To fix this, you can run ``npm run fix-tf-install``  
+Note: Sometimes, tensorflow doesn't install properly. You'll get errors when trying to import it.  
+To fix this, you can run ``npm run fix-tf-install-unix`` or ``npm run fix-tf-install-windows``, depending on the type of terminal you are using (do you use ``ls`` or ``dir`` ?).  
 
 ## The project
 After completing this project, you will have built and trained a Tensorflow neural network to predict the number drawn in an image.  
