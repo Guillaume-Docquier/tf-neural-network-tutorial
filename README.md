@@ -6,7 +6,7 @@ This tutorial is aimed at machine learning and javascript beginners!
 You do not need Python to run this project. If you have errors that seem related to python, ignore them.  
 You will need to install NodeJS v12 and npm to complete the exercises.  
 - If you already have node installed, check the version with ``node -v``
-- If it's not 12.x, you need to update
+- If it's not 12.x, you need to update  
 NodeJS and npm are usually bundled together.  
 You can download NodeJS from their [official website](https://nodejs.org/en/) or install it through [chocolatey](https://chocolatey.org/packages/nodejs).  
 ``choco install nodejs``
