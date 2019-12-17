@@ -1,13 +1,19 @@
 const tf = require("@tensorflow/tfjs");
 require("@tensorflow/tfjs-node");
 
-// Define a tf.sequential model
-// Add a hidden and an output layer
-// Compile the model with the chosen optimizer, loss and metrics
+/*
+*   Define a tf.sequential model
+*   Add a hidden and an output layer
+*   https://js.tensorflow.org/api/latest/#tf.Sequential.add
+*/
 function buildModel() {
     const model = tf.sequential();
 
-    model.compile();
+    model.compile({
+        optimizer: "adam",
+        loss: "categoricalCrossentropy",
+        metrics: ["accuracy"]
+    });
 
     return model;
 }
