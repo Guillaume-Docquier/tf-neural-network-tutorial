@@ -3,7 +3,9 @@ require("@tensorflow/tfjs-node");
 
 /*
 *   Define a tf.sequential model
-*   Add a hidden and an output layer
+*   Add two fully connected layers
+*   Remember when we use the softmax activation?
+*   (Hint: Tensorflow calls these "Dense" layers)
 *   https://js.tensorflow.org/api/latest/#tf.Sequential.add
 */
 function buildModel() {
